@@ -1,9 +1,8 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Button } from "@/components/ui/button"
-import { FooterNavigation } from "@/components/footer-navigation"
+import Link from "next/link";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 
 // Strength card component
 function StrengthCard({ title, value, unit = "mSTRENGTH" }) {
@@ -33,7 +32,7 @@ function StrengthCard({ title, value, unit = "mSTRENGTH" }) {
         </svg>
       </div>
     </div>
-  )
+  );
 }
 
 // Benchmark lift card component
@@ -46,7 +45,7 @@ function BenchmarkLiftCard({ title, value, unit }) {
         <span className="text-xl text-gray-500 ml-2">{unit}</span>
       </div>
     </div>
-  )
+  );
 }
 
 // Stats card component
@@ -80,68 +79,28 @@ function StatsCard({ icon, title, subtitle, value }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default function BodyPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#1A1A1A] text-white">
-      {/* Header */}
-      <header className="h-[60px] bg-[#1A1A1A] border-b border-[#333333] flex items-center justify-between px-6">
-        <Link href="/" className="text-xl font-bold text-white">
-          FITPLAN
-        </Link>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 bg-[#2A2A2A] px-3 py-1.5 rounded-md cursor-pointer">
-            <span>Your Gym</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-chevron-down"
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
-          </div>
-          <div className="flex items-center gap-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-bell cursor-pointer hover:text-[#FF3366] transition-colors"
-            >
-              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-            </svg>
-            <div className="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center text-[#1A1A1A] font-bold cursor-pointer">
-              U
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto pb-[60px]">
         <div className="max-w-4xl mx-auto px-4 py-6">
           {/* Tabs */}
           <Tabs defaultValue="results" className="w-full mb-8">
             <TabsList className="grid w-full grid-cols-2 bg-[#2A2A2A] p-1">
-              <TabsTrigger value="results" className="data-[state=active]:bg-[#FF3366]">
+              <TabsTrigger
+                value="results"
+                className="data-[state=active]:bg-[#FF3366]"
+              >
                 Results
               </TabsTrigger>
-              <TabsTrigger value="recovery" className="data-[state=active]:bg-[#FF3366]">
+              <TabsTrigger
+                value="recovery"
+                className="data-[state=active]:bg-[#FF3366]"
+              >
                 Recovery
               </TabsTrigger>
             </TabsList>
@@ -172,7 +131,8 @@ export default function BodyPage() {
                     </svg>
                   </div>
                   <p className="text-gray-300 mb-6">
-                    Use body composition stats and movement data from other apps to create better Fitplan workouts.
+                    Use body composition stats and movement data from other apps
+                    to create better Fitplan workouts.
                   </p>
                   <Button className="w-full bg-white text-[#FF3366] hover:bg-gray-200 mb-4">
                     Sync with Apple Health
@@ -187,7 +147,9 @@ export default function BodyPage() {
                 {/* Body Fat Percentage */}
                 <div className="bg-[#2A2A2A] rounded-xl p-6 mb-4">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-xl font-semibold">Body Fat Percentage</h3>
+                    <h3 className="text-xl font-semibold">
+                      Body Fat Percentage
+                    </h3>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -346,7 +308,9 @@ export default function BodyPage() {
                       <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
                       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
-                    <p className="text-xl text-gray-400 text-center">Hit every muscle to unlock this score</p>
+                    <p className="text-xl text-gray-400 text-center">
+                      Hit every muscle to unlock this score
+                    </p>
                   </div>
                 </div>
 
@@ -380,9 +344,15 @@ export default function BodyPage() {
                   </svg>
                 </div>
 
-                <p className="text-gray-400 mb-6">Your best lifts across exercises will appear here</p>
+                <p className="text-gray-400 mb-6">
+                  Your best lifts across exercises will appear here
+                </p>
 
-                <BenchmarkLiftCard title="Bench Press" value="00" unit="reps in 1 set" />
+                <BenchmarkLiftCard
+                  title="Bench Press"
+                  value="00"
+                  unit="reps in 1 set"
+                />
               </div>
             </TabsContent>
 
@@ -403,15 +373,14 @@ export default function BodyPage() {
                   <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                   <path d="M3.22 12H9.5l.5-1 2 4 .5-1h6.78" />
                 </svg>
-                <p className="text-xl text-gray-400 text-center">Recovery data will be shown here</p>
+                <p className="text-xl text-gray-400 text-center">
+                  Recovery data will be shown here
+                </p>
               </div>
             </TabsContent>
           </Tabs>
         </div>
       </div>
-
-      {/* Footer Navigation */}
-      <FooterNavigation />
     </div>
-  )
+  );
 }

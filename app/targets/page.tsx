@@ -1,14 +1,18 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { FooterNavigation } from "@/components/footer-navigation"
+import Link from "next/link";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Custom hexagon component
-function Hexagon({ percentage = 0, size = "large", date = null, color = "#4ECDC4" }) {
-  const hexSize = size === "large" ? "w-48 h-48" : "w-20 h-20"
-  const fontSize = size === "large" ? "text-5xl" : "text-lg"
-  const strokeWidth = size === "large" ? 8 : 4
+function Hexagon({
+  percentage = 0,
+  size = "large",
+  date = null,
+  color = "#4ECDC4",
+}) {
+  const hexSize = size === "large" ? "w-48 h-48" : "w-20 h-20";
+  const fontSize = size === "large" ? "text-5xl" : "text-lg";
+  const strokeWidth = size === "large" ? 8 : 4;
 
   return (
     <div className={`relative ${hexSize} flex items-center justify-center`}>
@@ -34,7 +38,7 @@ function Hexagon({ percentage = 0, size = "large", date = null, color = "#4ECDC4
         {date && <span className="text-sm text-gray-400 mt-1">{date}</span>}
       </div>
     </div>
-  )
+  );
 }
 
 // Muscle group card component
@@ -45,7 +49,12 @@ function MuscleGroupCard({ title, current, total, color }) {
         <div className="flex items-center">
           <div className="mr-4">
             <svg viewBox="0 0 100 100" className="w-12 h-12">
-              <polygon points="50,3 95,25 95,75 50,97 5,75 5,25" fill="transparent" stroke={color} strokeWidth="8" />
+              <polygon
+                points="50,3 95,25 95,75 50,97 5,75 5,25"
+                fill="transparent"
+                stroke={color}
+                strokeWidth="8"
+              />
             </svg>
           </div>
           <div>
@@ -75,7 +84,7 @@ function MuscleGroupCard({ title, current, total, color }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Benchmark lift card component
@@ -88,7 +97,7 @@ function BenchmarkLiftCard({ title, value, unit }) {
         <span className="text-xl text-gray-500 ml-2">{unit}</span>
       </div>
     </div>
-  )
+  );
 }
 
 // Strength card component
@@ -119,12 +128,12 @@ function StrengthCard({ title, value, unit = "mSTRENGTH" }) {
         </svg>
       </div>
     </div>
-  )
+  );
 }
 
 export default function TargetsPage() {
   // Current date range
-  const currentDateRange = "5 May - 11 May"
+  const currentDateRange = "5 May - 11 May";
 
   // Previous weeks
   const previousWeeks = [
@@ -132,66 +141,26 @@ export default function TargetsPage() {
     { date: "20 Apr", percentage: 0 },
     { date: "27 Apr", percentage: 0 },
     { date: "4 May", percentage: 0 },
-  ]
+  ];
 
   return (
     <div className="flex flex-col min-h-screen bg-[#1A1A1A] text-white">
-      {/* Header */}
-      <header className="h-[60px] bg-[#1A1A1A] border-b border-[#333333] flex items-center justify-between px-6">
-        <Link href="/" className="text-xl font-bold text-white">
-          FITPLAN
-        </Link>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2 bg-[#2A2A2A] px-3 py-1.5 rounded-md cursor-pointer">
-            <span>Your Gym</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-chevron-down"
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
-          </div>
-          <div className="flex items-center gap-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-bell cursor-pointer hover:text-[#FF3366] transition-colors"
-            >
-              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-            </svg>
-            <div className="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center text-[#1A1A1A] font-bold cursor-pointer">
-              U
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Main Content */}
       <div className="flex-1 overflow-y-auto pb-[60px]">
         <div className="max-w-4xl mx-auto px-4 py-6">
           {/* Tabs */}
           <Tabs defaultValue="results" className="w-full mb-8">
             <TabsList className="grid w-full grid-cols-2 bg-[#2A2A2A] p-1">
-              <TabsTrigger value="results" className="data-[state=active]:bg-[#FF3366]">
+              <TabsTrigger
+                value="results"
+                className="data-[state=active]:bg-[#FF3366]"
+              >
                 Results
               </TabsTrigger>
-              <TabsTrigger value="recovery" className="data-[state=active]:bg-[#FF3366]">
+              <TabsTrigger
+                value="recovery"
+                className="data-[state=active]:bg-[#FF3366]"
+              >
                 Recovery
               </TabsTrigger>
             </TabsList>
@@ -200,8 +169,12 @@ export default function TargetsPage() {
               {/* Weekly Set Targets */}
               <div className="mb-8">
                 <div className="flex items-center mb-2">
-                  <h2 className="text-3xl font-bold mr-2">Weekly Set Targets</h2>
-                  <span className="bg-[#333333] text-xs px-2 py-1 rounded">BETA</span>
+                  <h2 className="text-3xl font-bold mr-2">
+                    Weekly Set Targets
+                  </h2>
+                  <span className="bg-[#333333] text-xs px-2 py-1 rounded">
+                    BETA
+                  </span>
                 </div>
                 <p className="text-gray-400 mb-6">{currentDateRange}</p>
 
@@ -210,9 +183,24 @@ export default function TargetsPage() {
                 </div>
 
                 <div className="space-y-4">
-                  <MuscleGroupCard title="Push Muscles" current={0} total={27} color="#A3A284" />
-                  <MuscleGroupCard title="Pull Muscles" current={0} total={14} color="#D64550" />
-                  <MuscleGroupCard title="Leg Muscles" current={0} total={24} color="#4ECDC4" />
+                  <MuscleGroupCard
+                    title="Push Muscles"
+                    current={0}
+                    total={27}
+                    color="#A3A284"
+                  />
+                  <MuscleGroupCard
+                    title="Pull Muscles"
+                    current={0}
+                    total={14}
+                    color="#D64550"
+                  />
+                  <MuscleGroupCard
+                    title="Leg Muscles"
+                    current={0}
+                    total={24}
+                    color="#4ECDC4"
+                  />
                 </div>
               </div>
 
@@ -274,7 +262,9 @@ export default function TargetsPage() {
                       <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
                       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
-                    <p className="text-xl text-gray-400 text-center">Hit every muscle to unlock this score</p>
+                    <p className="text-xl text-gray-400 text-center">
+                      Hit every muscle to unlock this score
+                    </p>
                   </div>
                 </div>
 
@@ -308,12 +298,26 @@ export default function TargetsPage() {
                   </svg>
                 </div>
 
-                <p className="text-gray-400 mb-6">Your best lifts across exercises will appear here</p>
+                <p className="text-gray-400 mb-6">
+                  Your best lifts across exercises will appear here
+                </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <BenchmarkLiftCard title="Bench Press" value="00" unit="reps in 1 set" />
-                  <BenchmarkLiftCard title="Squat" value="00" unit="kg for 5 reps" />
-                  <BenchmarkLiftCard title="Deadlift" value="00" unit="kg for 3 reps" />
+                  <BenchmarkLiftCard
+                    title="Bench Press"
+                    value="00"
+                    unit="reps in 1 set"
+                  />
+                  <BenchmarkLiftCard
+                    title="Squat"
+                    value="00"
+                    unit="kg for 5 reps"
+                  />
+                  <BenchmarkLiftCard
+                    title="Deadlift"
+                    value="00"
+                    unit="kg for 3 reps"
+                  />
                 </div>
               </div>
 
@@ -323,7 +327,11 @@ export default function TargetsPage() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {previousWeeks.map((week, index) => (
                     <div key={index} className="flex flex-col items-center">
-                      <Hexagon percentage={week.percentage} size="small" color="#4ECDC4" />
+                      <Hexagon
+                        percentage={week.percentage}
+                        size="small"
+                        color="#4ECDC4"
+                      />
                       <span className="text-gray-400 mt-2">{week.date}</span>
                     </div>
                   ))}
@@ -348,15 +356,14 @@ export default function TargetsPage() {
                   <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                   <path d="M3.22 12H9.5l.5-1 2 4 .5-1h6.78" />
                 </svg>
-                <p className="text-xl text-gray-400 text-center">Recovery data will be shown here</p>
+                <p className="text-xl text-gray-400 text-center">
+                  Recovery data will be shown here
+                </p>
               </div>
             </TabsContent>
           </Tabs>
         </div>
       </div>
-
-      {/* Footer Navigation */}
-      <FooterNavigation />
     </div>
-  )
+  );
 }
